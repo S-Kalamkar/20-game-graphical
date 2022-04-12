@@ -1,37 +1,61 @@
 function run() {
     getCard()
+    console.log(getCard())
 }
 
-function getCard() {
-    var r = Math.floor(Math.random() *10 ) + 1
-    if (r==1){
-        r = "A"
-    }
+function ranNum() {
+    var rng = Math.floor(Math.random() *10) +1
+}
 
-    if (r==10) {
-        var rf = Math.floor(Math.random() * 4 ) + 1
-        if (rf==1) {
-            r="J"
-        } else if (rf==2) {
-            r="Q"
-        } else if (rf==3) {
-            r="K"
+function cardType(value) {
+    if (value==10) {
+        var rType = Math.floor(Math.random() * 4 ) + 1
+        if (rType==1) {
+            value="J"
+        } else if (rType==2) {
+            value="Q"
+        } else if (rType==3) {
+            value="K"
         } else {
-            r=10
+            value=10
         }
+    } else if(value==1) {
+        value="A"
     }
-    console.log(r)
+    return value
+}
 
-    var rt = Math.floor(Math.random() * 4 ) + 1
-    if (rt==1) {
-        rt="C"
-    } else if (rt==2) {
-        rt="D"
-    } else if (rt==3) {
-        rt="H"
+function cardSuit() {
+    var rSuit = Math.floor(Math.random() * 4 ) + 1
+    if (rSuit==1) {
+        rSuit="C"
+    } else if (rSuit==2) {
+        rSuit="D"
+    } else if (rSuit==3) {
+        rSuit="H"
     } else {
-        rt="S"
+        rSuit="S"
     }
-    document.getElementById("card").innerHTML = "<img src=Cards/"+ r + rt +".jpg>"
+    return rSuit
+}
+
+
+function cardMake(type, suit) {
+    
 
 }
+
+function computerPlay(){
+    var comNum = 0
+    var talkDiv=document.getElementById("gameTalk")
+    talkDiv.innerHTML = "The computer will go now!"
+    
+    do {
+        comNum = comNum + getCard()
+
+    } while (comNum < 16)
+    return comNum
+}
+
+computerPlay()
+console.log(computerPlay())
