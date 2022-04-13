@@ -1,13 +1,18 @@
 function run() {
-    var card = cardMake(cardType(ranNum()), cardSuit())
-    // console.log(card)
-    document.getElementById("card").innerHTML = card
+    computerPlay()
+    // var card = cardMake(cardType(ranNum()), cardSuit())
+    // // console.log(card)
+    // document.getElementById("card").innerHTML = card
 
+}
+
+function restart() {
+    location.reload()
 }
 
 function ranNum() {
     var rng = Math.floor(Math.random() *10) +1
-    console.log(rng)
+    // console.log(rng)
     return rng
 }
 
@@ -27,7 +32,7 @@ function cardType(num) {
     } else if(value==1) {
         value="A"
     }
-    console.log(value)
+    // console.log(value)
     return value
 }
 
@@ -42,7 +47,7 @@ function cardSuit() {
     } else {
         rSuit="S"
     }
-    console.log(rSuit)
+    // console.log(rSuit)
     return rSuit
 }
 
@@ -57,13 +62,28 @@ function computerPlay(){
     var comNum = 0
     var talkDiv=document.getElementById("gameTalk")
     talkDiv.innerHTML = "The computer will go now!"
+    var randnum = ranNum()
+    var type = cardType(randnum)
+    var suit = cardSuit()
+    var card = cardMake(type, suit)
     
     do {
-        comNum = comNum + cardType()
+        var cardpull = 0
+        cardpull++
 
+        randnum = ranNum()
+        type = cardType(randnum)
+        suit = cardSuit()
+        card = cardMake(type, suit)
+        comNum = comNum + randnum
+        console.log(randnum)
+        document.getElementById("card").innerHTML = card
+        
     } while (comNum < 16)
+
+    talkDiv.innerHTML = `The computer got ${comNum}`
     return comNum
 }
 
 computerPlay()
-console.log(computerPlay())
+// console.log(computerPlay())
