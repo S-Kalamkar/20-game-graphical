@@ -1,13 +1,18 @@
 function run() {
-    getCard()
-    console.log(getCard())
+    var card = cardMake(cardType(ranNum()), cardSuit())
+    // console.log(card)
+    document.getElementById("card").innerHTML = card
+
 }
 
 function ranNum() {
     var rng = Math.floor(Math.random() *10) +1
+    console.log(rng)
+    return rng
 }
 
-function cardType(value) {
+function cardType(num) {
+    var value = num
     if (value==10) {
         var rType = Math.floor(Math.random() * 4 ) + 1
         if (rType==1) {
@@ -22,6 +27,7 @@ function cardType(value) {
     } else if(value==1) {
         value="A"
     }
+    console.log(value)
     return value
 }
 
@@ -36,12 +42,14 @@ function cardSuit() {
     } else {
         rSuit="S"
     }
+    console.log(rSuit)
     return rSuit
 }
 
 
 function cardMake(type, suit) {
-    
+    var card = `<img src="Cards/${type}${suit}.jpg">`
+    return card
 
 }
 
@@ -51,7 +59,7 @@ function computerPlay(){
     talkDiv.innerHTML = "The computer will go now!"
     
     do {
-        comNum = comNum + getCard()
+        comNum = comNum + cardType()
 
     } while (comNum < 16)
     return comNum
