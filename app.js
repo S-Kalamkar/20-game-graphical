@@ -5,23 +5,15 @@ function run() {
 
 }
 
-<<<<<<< HEAD
 function restart() {
     location.reload()
 }
 
-function getCard() {
-    var r = Math.floor(Math.random() *10 ) + 1
-    if (r==1){
-        r = "A"
-    }
-=======
 function ranNum() {
     var rng = Math.floor(Math.random() *10) +1
     console.log(rng)
     return rng
 }
->>>>>>> aebe8fff6049f1c95ced97e37a696d4dd05fd1f9
 
 function cardType(num) {
     var value = num
@@ -77,10 +69,5 @@ function computerPlay(){
     return comNum
 }
 
-<<<<<<< HEAD
-}
-
-=======
 computerPlay()
 console.log(computerPlay())
->>>>>>> aebe8fff6049f1c95ced97e37a696d4dd05fd1f9
