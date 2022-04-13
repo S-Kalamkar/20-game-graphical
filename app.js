@@ -2,6 +2,10 @@ function run() {
     getCard()
 }
 
+function restart() {
+    location.reload()
+}
+
 function getCard() {
     var r = Math.floor(Math.random() *10 ) + 1
     if (r==1){
@@ -35,3 +39,4 @@ function getCard() {
     document.getElementById("card").innerHTML = "<img src=Cards/"+ r + rt +".jpg>"
 
 }
+
