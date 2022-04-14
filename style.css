@@ -1,3 +1,35 @@
 body{
     background-image: url(Cards/table.jpeg);
 }
+
+#card,img {
+    width: 200px;
+    height: 320px;
+    border-radius: 20px;
+    margin-left: 150px;
+    margin-top: 29px;
+}
+
+#main {
+    background-color: green;
+    font-size: 30px;
+    padding: 20px;
+    width: 80px;
+    margin: 0%;
+}
+
+#stop {
+    background-color: red;
+    font-size: 30px;
+    padding: 20px;
+    width: 80px;
+    margin: 0%;
+}
+
+#reload {
+    background-color: yellow;
+    font-size: 30px;
+    padding: 20px;
+    width: 80px;
+    margin: 0%;
+}
