@@ -82,6 +82,26 @@ function computerPlay(){
     return comNum;
 }
 
-function userPlay(){
 
+function userPlay(){
+    var userNum = 0;
+    var talkDiv = document.getElementById("gameTalk");
+    talkDiv.innerHTML = "The computer will go now!";
+    var randNum = 0;
+    var card = 0;
+    var cards = [];
+    
+
+    do {
+        
+        randNum = ranNum();
+        console.log(card);
+        card = cardMake(cardType(randNum), cardSuit());
+        cards.push(card);
+        document.getElementById("card").innerHTML = cards;
+        userNum = userNum + randNum;
+        console.log(userNum);
+
+
+    } while((userNum < 16))
 }
