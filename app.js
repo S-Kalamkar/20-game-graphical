@@ -2,7 +2,17 @@ function run() {
     computerPlay();
     // console.log(card)
     // document.getElementById("card").innerHTML = card
+    talking()
 
+}
+
+function talking() {
+    document.getElementById("gameTalk").style.backgroundColor="white"
+    document.getElementById("gameTalk").style.fontSize="30px"
+    document.getElementById("gameTalk").style.padding="20px"
+    document.getElementById("gameTalk").style.width="80px"
+    document.getElementById("gameTalk").style.margin="0%"
+    document.getElementById("gameTalk").style.color="black"
 }
 
 function restart() {
