@@ -36,3 +36,12 @@ body{
     margin: 0%;
     color: red;
 }   
+
+.gameTalk {
+    background-color: white;
+    font-size: 30px;
+    padding: 20px;
+    width: 80px;
+    margin: 0%;
+    color: black;
+}
