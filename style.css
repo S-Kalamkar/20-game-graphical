@@ -13,29 +13,39 @@ body{
 
 #main {
     background-color: green;
-    font-size: 30px;
+    font-size: 15px;
     padding: 20px;
     width: 80px;
+    height: 40px;
     margin: 0%;
     color: white;
+    margin-bottom: 10px;
+    box-shadow: 5px 5px 5px black;
 }
 
-#stop {
+#stand {
     background-color: red;
-    font-size: 30px;
+    font-size: 15px;
     padding: 20px;
     width: 80px;
+    height: 40px;
     margin: 0%;
     color: yellow;
+    margin-bottom: 10px;
+    box-shadow: 5px 5px 5px black;
 }
 
 #reload {
     background-color: yellow;
-    font-size: 30px;
+    font-size: 15px;
     padding: 20px;
     width: 80px;
+    height: 40px;
     margin: 0%;
     color: red;
+    margin-bottom: 10px;
+    border-radius: 2px;
+    box-shadow: 5px 5px 5px black;
 }   
 
 /* #gameTalk {

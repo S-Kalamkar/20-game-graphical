@@ -8,11 +8,15 @@ function run() {
 
 function talking() {
     document.getElementById("gameTalk").style.backgroundColor="white"
-    document.getElementById("gameTalk").style.fontSize="30px"
+    document.getElementById("gameTalk").style.fontSize="15px"
     document.getElementById("gameTalk").style.padding="20px"
     document.getElementById("gameTalk").style.width="80px"
+    document.getElementById("gameTalk").style.height="40px"
     document.getElementById("gameTalk").style.margin="0%"
     document.getElementById("gameTalk").style.color="black"
+    document.getElementById("gameTalk").style.borderRadius="2px"
+    document.getElementById("gameTalk").style.boxShadow="5px 5px 5px black"
+
 }
 
 function restart() {
@@ -96,22 +100,18 @@ function computerPlay(){
 function userPlay(){
     var userNum = 0;
     var talkDiv = document.getElementById("gameTalk");
-    talkDiv.innerHTML = "The computer will go now!";
     var randNum = 0;
     var card = 0;
     var cards = [];
-    
 
-    do {
-        
-        randNum = ranNum();
-        console.log(card);
-        card = cardMake(cardType(randNum), cardSuit());
-        cards.push(card);
-        document.getElementById("card").innerHTML = cards;
-        userNum = userNum + randNum;
-        console.log(userNum);
+    randNum = ranNum();
+    console.log(card);
+    card = cardMake(cardType(randNum), cardSuit());
+    cards.push(card);
+    document.getElementById("card").innerHTML = cards;
+    userNum = userNum + randNum;
+    console.log(userNum);
 
 
-    } while((userNum < 16))
+
 }
