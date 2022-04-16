@@ -1,9 +1,12 @@
-function run() {
+function runComp() {
     computerPlay();
-    // console.log(card)
-    // document.getElementById("card").innerHTML = card
     talking()
 
+}
+
+function runUser() {
+    userPlay()
+    talking()
 }
 
 function talking() {
@@ -11,10 +14,9 @@ function talking() {
     document.getElementById("gameTalk").style.fontSize="15px"
     document.getElementById("gameTalk").style.padding="20px"
     document.getElementById("gameTalk").style.width="80px"
-    document.getElementById("gameTalk").style.height="40px"
+    document.getElementById("gameTalk").style.height="50px"
     document.getElementById("gameTalk").style.margin="0%"
     document.getElementById("gameTalk").style.color="black"
-    document.getElementById("gameTalk").style.borderRadius="2px"
     document.getElementById("gameTalk").style.boxShadow="5px 5px 5px black"
 
 }
@@ -25,7 +27,7 @@ function restart() {
 
 function ranNum() {
     var rng = Math.floor(Math.random() *10) +1
-    console.log(rng);
+    // console.log(rng);
     return rng;
 }
 
@@ -60,7 +62,7 @@ function cardSuit() {
     } else {
         rSuit="S";
     }
-    console.log(rSuit);
+    // console.log(rSuit);
     return rSuit;
 }
 
@@ -70,48 +72,93 @@ function cardMake(type, suit) {
     return card;
 
 }
+var comNum = 0;
 
 function computerPlay(){
-    var comNum = 0;
+    if (comNum > 20) {
+        return
+    }
     var talkDiv = document.getElementById("gameTalk");
     talkDiv.innerHTML = "The computer will go now!";
     var randNum = 0;
-    var card = 0;
-    var cards = [];
-
+    var comCard = 0;
+    var comCards = [];
+    
     do {
         randNum = ranNum();
-        console.log(card);
-        card = cardMake(cardType(randNum), cardSuit());
-        cards.push(card);
-        document.getElementById("card").innerHTML = cards;
+        // console.log(comCard);
+        comCard = cardMake(cardType(randNum), cardSuit());
+        comCards.push(comCard);
+        document.getElementById("comCard").innerHTML = comCards;
         comNum = comNum + randNum;
-        console.log(comNum);
-
-
+        // console.log(comNum);
+        
+        
     } while(comNum < 16)
-
+    
     talkDiv.innerHTML = `The computer got ${comNum}!`;
-
+    document.getElementById("main").onclick = ""
+    document.getElementById("stand").onclick = ""
+    
+    console.log(comNum)
     return comNum;
 }
 
+var userNum = 0
+var userCard = 0;
+var userCards = [];
+var user
 
 function userPlay(){
-    var userNum = 0;
     var talkDiv = document.getElementById("gameTalk");
-    var randNum = 0;
-    var card = 0;
-    var cards = [];
+    // talking()
+    if (userNum > 20) {
+        // talking()
+        talkDiv.innerHTML = "You busted! The computer will go now!";
+        document.getElementById("main").onclick = ""
+        document.getElementById("stand").onclick = ""
+        setTimeout(runComp, 1000)
 
-    randNum = ranNum();
-    console.log(card);
-    card = cardMake(cardType(randNum), cardSuit());
-    cards.push(card);
-    document.getElementById("card").innerHTML = cards;
-    userNum = userNum + randNum;
-    console.log(userNum);
 
+        return
+    }
+    
+    var num = ranNum()
+    userCard = cardMake(cardType(num), cardSuit()) 
+    userCards.push(userCard);
+    document.getElementById("userCard").innerHTML = userCards;
+    userNum = userNum + num
+    talkDiv.innerHTML = `You have ${userNum}`
+    console.log(userNum)
+
+    return userNum
+}
+
+
+function comapre(userValue, comValue) {
+    var talkDiv = document.getElementById("gameTalk");
+    var comScore = 0
+    var userScore = 0
+
+    console.log(userValue)
+    console.log(comValue)
+
+    if (userValue > 20){
+        talkDiv.innerHTML = "You busted! The computer won!";
+        comScore++
+    } else if (comValue > 20) {
+        talkDiv.innerHTML = "The computer busted! You won!";
+        userScore++
+    } else if (userValue > comValue) {
+        talkDiv.innerHTML = `You won! The computer got a score of ${comValue} and you got a score of ${userValue}.`
+        userScore++
+    } else if (userValue < comValue) {
+        talkDiv.innerHTML = `The computer won! The computer got a score of ${comValue} and you got a score of ${userValue}.`
+        userScore++
+    } else {
+        talkDiv.innerHTML = `You tied!. You and the computer both got a score of ${userValue}`
+
+    }
 
 
 }
