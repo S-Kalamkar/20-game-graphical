@@ -1,11 +1,15 @@
 function runComp() {
-    computerPlay();
+    var com = computerPlay();
     talking()
+    setTimeout(comapre, 1000, user ,com)
+    // comapre(user, com)
+    // console.log(com)
 
 }
 
 function runUser() {
-    userPlay()
+    user = userPlay()
+    // console.log(user)
     talking()
 }
 
@@ -100,7 +104,7 @@ function computerPlay(){
     document.getElementById("main").onclick = ""
     document.getElementById("stand").onclick = ""
     
-    console.log(comNum)
+    // console.log(comNum)
     return comNum;
 }
 
@@ -129,7 +133,7 @@ function userPlay(){
     document.getElementById("userCard").innerHTML = userCards;
     userNum = userNum + num
     talkDiv.innerHTML = `You have ${userNum}`
-    console.log(userNum)
+    // console.log(userNum)
 
     return userNum
 }
@@ -140,8 +144,8 @@ function comapre(userValue, comValue) {
     var comScore = 0
     var userScore = 0
 
-    console.log(userValue)
-    console.log(comValue)
+    // console.log(userValue)
+    // console.log(comValue)
 
     if (userValue > 20){
         talkDiv.innerHTML = "You busted! The computer won!";
@@ -162,3 +166,4 @@ function comapre(userValue, comValue) {
 
 
 }
+
