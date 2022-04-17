@@ -48,7 +48,7 @@ function cardType(num) {
         } else {
             value=10;
         }
-    } else if(value==1) {
+    } else if((value==1) || (value == 11)) {
         value="A";
     }
     // console.log(value)
@@ -90,6 +90,13 @@ function computerPlay(){
     
     do {
         randNum = ranNum();
+        if (randNum == 1) {
+            if (comNum+11 <= 16) {
+                randNum = 11
+            } else {
+                randNum = 1
+            }
+        };
         // console.log(comCard);
         comCard = cardMake(cardType(randNum), cardSuit());
         comCards.push(comCard);
@@ -128,6 +135,13 @@ function userPlay(){
     }
     
     var num = ranNum()
+    if (num == 1) {
+        if (userNum+11 <= 16) {
+            num = 11
+        } else {
+            num = 1
+        }
+    };
     userCard = cardMake(cardType(num), cardSuit()) 
     userCards.push(userCard);
     document.getElementById("userCard").innerHTML = userCards;
