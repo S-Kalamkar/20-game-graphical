@@ -15,14 +15,16 @@ function runUser() {
 
 function talking() {
     document.getElementById("gameTalk").style.backgroundColor="white"
-    document.getElementById("gameTalk").style.fontSize="15px"
+    document.getElementById("gameTalk").style.fontSize="35px"
     document.getElementById("gameTalk").style.padding="20px"
-    document.getElementById("gameTalk").style.width="80px"
-    document.getElementById("gameTalk").style.height="50px"
+    document.getElementById("gameTalk").style.width="350px"
+    document.getElementById("gameTalk").style.height="100px"
     document.getElementById("gameTalk").style.margin="0%"
     document.getElementById("gameTalk").style.color="black"
     document.getElementById("gameTalk").style.boxShadow="5px 5px 5px black"
-
+    document.getElementById("gameTalk").style.marginBottom="40px"
+    document.getElementById("gameTalk").style.marginLeft="500px"
+    document.getElementById("gameTalk").style.textAlign="center"
 }
 
 function restart() {
