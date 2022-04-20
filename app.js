@@ -1,10 +1,14 @@
-function runComp() {
-    var com = computerPlay();
-    talking()
-    setTimeout(comapre, 1000, user ,com)
-    // comapre(user, com)
-    // console.log(com)
+var com
+var user
 
+function runComp() {
+    com = computerPlay();
+    talking()
+    console.log(user)
+    console.log(com)
+    setTimeout(comapre, 1000, user ,com)
+    // console.log(com)
+    
 }
 
 function runUser() {
@@ -12,6 +16,8 @@ function runUser() {
     // console.log(user)
     talking()
 }
+
+// console.log(user)
 
 function talking() {
     document.getElementById("gameTalk").style.backgroundColor="white"
@@ -79,6 +85,8 @@ function cardMake(type, suit) {
 var comNum = 0;
 
 function computerPlay(){
+    console.log(user)
+    console.log(com)
     if (comNum > 20) {
         return
     }
@@ -118,21 +126,21 @@ function computerPlay(){
 var userNum = 0
 var userCard = 0;
 var userCards = [];
-var user
+// var user
 
 function userPlay(){
     var talkDiv = document.getElementById("gameTalk");
     // talking()
-    if (userNum > 20) {
-        // talking()
-        talkDiv.innerHTML = "You busted! The computer will go now!";
-        document.getElementById("main").onclick = ""
-        document.getElementById("stand").onclick = ""
-        setTimeout(runComp, 1000)
+    // if (userNum > 20) {
+    //     // talking()
+    //     talkDiv.innerHTML = "You busted! The computer will go now!";
+    //     document.getElementById("main").onclick = ""
+    //     document.getElementById("stand").onclick = ""
+    //     setTimeout(runComp, 1000)
 
 
-        return
-    }
+    //     return userNum
+    // }
     
     var num = ranNum()
     if (num == 1) {
@@ -148,6 +156,17 @@ function userPlay(){
     userNum = userNum + num
     talkDiv.innerHTML = `You have ${userNum}`
     // console.log(userNum)
+
+    if (userNum > 20) {
+        // talking()
+        talkDiv.innerHTML = "You busted! The computer will go now!";
+        document.getElementById("main").onclick = ""
+        document.getElementById("stand").onclick = ""
+        setTimeout(runComp, 1000)
+
+
+        return userNum
+    }
 
     return userNum
 }
