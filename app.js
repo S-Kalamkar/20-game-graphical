@@ -15,7 +15,7 @@ function runUser() {
 
 function talking() {
     document.getElementById("gameTalk").style.backgroundColor="white"
-    document.getElementById("gameTalk").style.fontSize="35px"
+    document.getElementById("gameTalk").style.fontSize="30px"
     document.getElementById("gameTalk").style.padding="20px"
     document.getElementById("gameTalk").style.width="350px"
     document.getElementById("gameTalk").style.height="100px"
