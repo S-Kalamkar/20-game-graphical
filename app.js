@@ -1,5 +1,9 @@
 var com
+var comNum = 0;
 var user
+var userNum = 0
+var userCard = 0;
+var userCards = [];
 
 function runComp() {
     com = computerPlay();
@@ -7,28 +11,25 @@ function runComp() {
     console.log(user)
     console.log(com)
     setTimeout(comapre, 1000, user ,com)
-    // console.log(com)
-    
 }
 
 function runUser() {
     user = userPlay()
-    // console.log(user)
     talking()
 }
 
-// console.log(user)
-
 function talking() {
     document.getElementById("gameTalk").style.backgroundColor="white"
-    document.getElementById("gameTalk").style.fontSize="15px"
+    document.getElementById("gameTalk").style.fontSize="30px"
     document.getElementById("gameTalk").style.padding="20px"
-    document.getElementById("gameTalk").style.width="80px"
-    document.getElementById("gameTalk").style.height="50px"
+    document.getElementById("gameTalk").style.width="350px"
+    document.getElementById("gameTalk").style.height="100px"
     document.getElementById("gameTalk").style.margin="0%"
     document.getElementById("gameTalk").style.color="black"
     document.getElementById("gameTalk").style.boxShadow="5px 5px 5px black"
-
+    document.getElementById("gameTalk").style.marginBottom="40px"
+    document.getElementById("gameTalk").style.marginLeft="500px"
+    document.getElementById("gameTalk").style.textAlign="center"
 }
 
 function restart() {
@@ -37,7 +38,6 @@ function restart() {
 
 function ranNum() {
     var rng = Math.floor(Math.random() *10) +1
-    // console.log(rng);
     return rng;
 }
 
@@ -57,7 +57,7 @@ function cardType(num) {
     } else if((value==1) || (value == 11)) {
         value="A";
     }
-    // console.log(value)
+
     return value;
 }
 
@@ -72,7 +72,7 @@ function cardSuit() {
     } else {
         rSuit="S";
     }
-    // console.log(rSuit);
+
     return rSuit;
 }
 
@@ -82,13 +82,12 @@ function cardMake(type, suit) {
     return card;
 
 }
-var comNum = 0;
 
 function computerPlay(){
     console.log(user)
     console.log(com)
     if (comNum > 20) {
-        return
+        return comNum
     }
     var talkDiv = document.getElementById("gameTalk");
     talkDiv.innerHTML = "The computer will go now!";
@@ -105,13 +104,11 @@ function computerPlay(){
                 randNum = 1
             }
         };
-        // console.log(comCard);
+
         comCard = cardMake(cardType(randNum), cardSuit());
         comCards.push(comCard);
         document.getElementById("comCard").innerHTML = comCards;
         comNum = comNum + randNum;
-        // console.log(comNum);
-        
         
     } while(comNum < 16)
     
@@ -119,29 +116,12 @@ function computerPlay(){
     document.getElementById("main").onclick = ""
     document.getElementById("stand").onclick = ""
     
-    // console.log(comNum)
     return comNum;
 }
 
-var userNum = 0
-var userCard = 0;
-var userCards = [];
-// var user
-
 function userPlay(){
     var talkDiv = document.getElementById("gameTalk");
-    // talking()
-    // if (userNum > 20) {
-    //     // talking()
-    //     talkDiv.innerHTML = "You busted! The computer will go now!";
-    //     document.getElementById("main").onclick = ""
-    //     document.getElementById("stand").onclick = ""
-    //     setTimeout(runComp, 1000)
-
-
-    //     return userNum
-    // }
-    
+ 
     var num = ranNum()
     if (num == 1) {
         if (userNum+11 <= 16) {
@@ -150,35 +130,29 @@ function userPlay(){
             num = 1
         }
     };
+
     userCard = cardMake(cardType(num), cardSuit()) 
     userCards.push(userCard);
     document.getElementById("userCard").innerHTML = userCards;
     userNum = userNum + num
     talkDiv.innerHTML = `You have ${userNum}`
-    // console.log(userNum)
+
 
     if (userNum > 20) {
-        // talking()
         talkDiv.innerHTML = "You busted! The computer will go now!";
         document.getElementById("main").onclick = ""
         document.getElementById("stand").onclick = ""
         setTimeout(runComp, 1000)
 
-
         return userNum
     }
-
     return userNum
 }
-
 
 function comapre(userValue, comValue) {
     var talkDiv = document.getElementById("gameTalk");
     var comScore = 0
     var userScore = 0
-
-    // console.log(userValue)
-    // console.log(comValue)
 
     if (userValue > 20){
         talkDiv.innerHTML = "You busted! The computer won!";
@@ -194,9 +168,5 @@ function comapre(userValue, comValue) {
         userScore++
     } else {
         talkDiv.innerHTML = `You tied!. You and the computer both got a score of ${userValue}`
-
     }
-
-
 }
-
