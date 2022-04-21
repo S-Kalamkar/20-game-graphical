@@ -7,7 +7,6 @@ var userCards = [];
 
 function runComp() {
     com = computerPlay();
-    talking()
     console.log(user)
     console.log(com)
     setTimeout(comapre, 1000, user ,com)
@@ -15,21 +14,6 @@ function runComp() {
 
 function runUser() {
     user = userPlay()
-    talking()
-}
-
-function talking() {
-    document.getElementById("gameTalk").style.backgroundColor="white"
-    document.getElementById("gameTalk").style.fontSize="30px"
-    document.getElementById("gameTalk").style.padding="20px"
-    document.getElementById("gameTalk").style.width="350px"
-    document.getElementById("gameTalk").style.height="100px"
-    document.getElementById("gameTalk").style.margin="0%"
-    document.getElementById("gameTalk").style.color="black"
-    document.getElementById("gameTalk").style.boxShadow="5px 5px 5px black"
-    document.getElementById("gameTalk").style.marginBottom="40px"
-    document.getElementById("gameTalk").style.marginLeft="500px"
-    document.getElementById("gameTalk").style.textAlign="center"
 }
 
 function restart() {
@@ -155,10 +139,10 @@ function comapre(userValue, comValue) {
     var userScore = 0
 
     if (userValue > 20){
-        talkDiv.innerHTML = "You busted! The computer won!";
+        talkDiv.innerHTML = `You busted! The computer won with a score of ${comValue}!`;
         comScore++
     } else if (comValue > 20) {
-        talkDiv.innerHTML = "The computer busted! You won!";
+        talkDiv.innerHTML = `The computer busted! You won with a score of ${userValue}!`;
         userScore++
     } else if (userValue > comValue) {
         talkDiv.innerHTML = `You won! The computer got a score of ${comValue} and you got a score of ${userValue}.`
