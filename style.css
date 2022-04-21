@@ -64,6 +64,20 @@ body{
     margin-left: 100px;
 }
 
+#gameTalk {
+    width: 350px;
+    height: 140px;
+    background-color: white;
+    padding: 20px;
+    color: black;
+    box-shadow: 5px 5px 5px black;
+    margin-bottom: 40px;
+    margin-left: 500px;
+    text-align: center;
+    font-size: 30px;
+    align-items: center;
+}
+
 .grid-container {
     display: flex;
     flex-direction: column;
